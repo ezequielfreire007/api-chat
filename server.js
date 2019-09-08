@@ -1,6 +1,9 @@
 // Librerias
 const express = require('express');
 const bodyParser = require('body-parser')
+
+const response = require('./network/response')
+
 const router = express.Router();
 
 // Server express
@@ -18,17 +21,22 @@ router.get('/message', function(req, res){
     res.header({
         "custom-header": "new header"
     })
-    res.send('Lista e mensajes')
+    response.success(req, res, 'list messages', 201)
 })
 
 router.post('/message', function(req, res){
-    res.send('Mensaje agregado')
+    // res.send('Mensaje agregado')
+    response.success(req, res, 'create message', 201)
 })
 
 router.delete('/message', function(req, res){
     console.log(req.query) // por url
-    console.log(req.body) // por form
-    res.status(201).send({'error':'', 'message':'delete ok'})
+    if(req.query.error == 'ok'){
+        response.error(req, res, 'error simuldao', 400)
+    } else{
+        response.success(req, res, 'create message', 201)
+    }
+    response.success(req, res, 'delete message')
 })
 
 // app.use('/', function(req, res){
