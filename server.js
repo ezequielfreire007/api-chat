@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const router = express.Router();
 
-// Servidor express
+// Server express
 var app = express();
 
 // BodyParse
@@ -28,7 +28,7 @@ router.post('/message', function(req, res){
 router.delete('/message', function(req, res){
     console.log(req.query) // por url
     console.log(req.body) // por form
-    res.send(`Mensaje ${req.body.text} borrado`)
+    res.status(201).send({'error':'', 'message':'delete ok'})
 })
 
 // app.use('/', function(req, res){
