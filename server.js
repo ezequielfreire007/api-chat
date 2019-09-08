@@ -14,6 +14,10 @@ app.use(bodyParser.urlencoded({ extends: false }))
 app.use(router)
 
 router.get('/message', function(req, res){
+    console.log(req.headers)
+    res.header({
+        "custom-header": "new header"
+    })
     res.send('Lista e mensajes')
 })
 
