@@ -39,9 +39,8 @@ router.delete('/message', function(req, res){
     response.success(req, res, 'delete message')
 })
 
-// app.use('/', function(req, res){
-//     res.send('Hola')
-// })
+// Archivos estaticos
+app.use('/app', express.static('public'))
 
 app.listen(3000)
 
