@@ -1,4 +1,4 @@
-const list = []
+let list = []
 
 const addMessage = (message) => {
     list.push(message)
