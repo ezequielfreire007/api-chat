@@ -1,6 +1,6 @@
+const store = require('./store')
 
-
-addMessage = (user, message) => {
+const addMessage = (user, message) => {
     return new Promise((resolve, reject) => {
         if (!user || !message) {
             console.error(`[messageController] No hay usuario o mensaje`)
