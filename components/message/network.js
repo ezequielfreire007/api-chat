@@ -15,8 +15,8 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   controller
     .addMessage(req.body.user, req.body.message)
-    .then(() => {
-      response.success(req, res, "Creado correctamente", 201);
+    .then((fullMessage) => {
+      response.success(req, res, fullMessage, 201);
     })
     .catch((e) => {
       response.error(
